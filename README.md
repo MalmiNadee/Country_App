@@ -48,6 +48,7 @@ run tests  => npm test
 ## Deployment 
 
 app is hosted => Vercel
+Vercel link => https://country-app-git-main-malmis-projects-357d03d7.vercel.app
 
 ## Challenges Faced & Solutions Implemented
 

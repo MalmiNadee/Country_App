@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme variables */
+:root {
+  --text-color: #111517;
+  --auth-color: #3b82f6;
+  --input-color: #858585;
+  --bg-color: #fafafa;
+  --element-color: #ffffff;
+  --button-bg-color: #4a6cf7;
+  --button-hover: #3a5ce9;
+  --button-active: #2563eb;
+  --border-color: #000000;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --focus-outline: rgba(59, 130, 246, 0.4);
+  --favorite-color: #ef4444;
+  --card-color: #f8fafc;
+  --gradient-primary: linear-gradient(135deg, #4a6cf7 0%, #a855f7 100%);
+
+}
+
+/* Dark theme variables */
+.dark {
+  --text-color: #ffffff;
+  --input-color: #94a3b8;
+  --bg-color: #0f172a;
+  --element-color: #1e293b;
+  --button-bg-color: #3b82f6;
+  --button-hover: #2563eb;
+  --button-active: #1d4ed8;
+  --button-link-hover: #5d8aff;
+  --button-border: #1e40af;
+  --border-color: #000000;
+  --card-color: #f8fafc;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --focus-outline: rgba(100, 165, 250, 0.4);
+
+}
+
+/* base styles */
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.loading, .error, .no-results{
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+

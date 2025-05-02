@@ -1,0 +1,303 @@
+/* Favorites Page and favorite button styles*/
+.favorites-page {
+    min-height: 70vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Favorites Container */
+.favorites-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    flex: 1;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+.favorites-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.favorites-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--favorite-color);
+    border-radius: 2px;
+}
+
+.title-icon {
+    color: var(--favorite-color);
+}
+
+.dark .favorites-title {
+    color: var(--text-color);
+}
+
+/* Favorites Grid */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease;
+}
+
+.no-favorites-icon {
+    font-size: 3.5rem;
+    color: var(--favorite-color);
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.no-favorites-text {
+    font-size: 1.5rem;
+    color: var(--input-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.dark .no-favorites-text {
+    color: var(--text-color);
+}
+
+.no-favorites-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+}
+
+.no-favorites-link:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
+}
+
+/* loading state styles */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    gap: 1.5rem;
+}
+
+.loading-spinner .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--text-color);
+    border-top-color: var(--button-bg-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-spinner p {
+    font-size: 1.25rem;
+    color: var(--button-bg-color);
+    font-weight: 500;
+}
+
+/* error message styles */
+.error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-icon {
+    font-size: 3rem;
+    color: var(--favorite-color);
+}
+
+.error-message p {
+    font-size: 1.25rem;
+    color: var(--favorite-color);
+    font-weight: 500;
+    max-width: 500px;
+}
+
+.retry-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--favorite-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: var(--favorite-color);
+    transform: translateY(-2px);
+}
+
+/* Favorite Button */
+.favorite-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--text-color);;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.favorite-button:hover {
+    transform: scale(1.1);
+    background: var(--text-color);
+    box-shadow: 0 4px 8px var(--shadow-color);;
+}
+
+.favorite-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.favorite-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.favorite-button.active .favorite-icon {
+    color: var(--favorite-color);
+    fill: var(--favorite-color);
+}
+
+.favorite-button.animate .favorite-icon {
+    animation: heartBeat 0.5s;
+}
+
+.fav {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .favorites-title {
+        font-size: 2rem;
+    }
+    
+    .no-favorites-text {
+        font-size: 1.25rem;
+    }
+}
+
+/* Mobile Version */
+@media (max-width: 480px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        margin-right: 2.5rem;
+    }
+    
+    .favorites-title {
+        font-size: 1.75rem;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-right: 2rem;
+    }
+    
+    .no-favorites-icon {
+        font-size: 3rem;
+    }
+    
+    .no-favorites-text {
+        font-size: 1.1rem;
+    }
+    
+    .no-favorites-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
